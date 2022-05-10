@@ -6,7 +6,7 @@ const oldpd=Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype, "src")
 Object.defineProperty(HTMLScriptElement.prototype, "src", {
   get: oldpd.get,
   set: function (val) {
-    if(typeof val == "string" && val.includes("adsense")) return val;
+    if((""+val).includes("adsense")) return val;
     return oldpd.set.apply(this, arguments)
   }
 })
